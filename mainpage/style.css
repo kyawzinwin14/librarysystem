@@ -1,0 +1,806 @@
+*{
+	box-sizing: border-box;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	min-height: 100vh;
+	background-color: #f4f4f4;
+
+	margin: 0;
+	overflow-x: hidden;
+}
+
+body::-webkit-scrollbar{
+	width: 10px;
+}
+
+body::-webkit-scrollbar-track{
+ 	box-shadow: inset 0 0 0 rgba(0, 0, 0, 1);
+}
+
+body::-webkit-scrollbar-thumb{
+	background-color: #d96459;
+}
+
+.up-arrow{
+	text-decoration: none;
+	width: 70px;
+	height: 70px;
+	background-color: #d96459;
+	color: #fff;
+	font-size: 20px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	border-radius: 50%;
+
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+
+	position: fixed;
+	bottom: -100%;
+	right: 20px;
+
+	z-index: 999;
+
+	transition: all 1s ease;
+}
+
+.up-arrow:hover{
+	color: #fff;
+}
+
+/* ------------------
+Start Header Section
+-------------------- */
+
+.header-container{
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+
+	z-index: 999;
+}
+
+.heading-box{
+	height: 100px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.heading-box h1{
+	font-size: 29px;
+	color: #fff;
+}
+
+.heading-box p{
+	font-style: italic;
+	color: #999;
+}
+
+.bars{
+	height: 100px;
+}
+
+.bars a{
+	text-decoration: none;
+	color: #f4f4f4;
+
+	transition: all 0.2s ease;
+}
+
+.bars .up-bar{
+	height: 40px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.bars .up-bar span{
+	color: #f4f4f4;
+	margin: 0 5px;
+}
+
+.bars .fas{
+	color: #d96459;
+	margin: 0 5px;
+}
+
+.up-bar a:hover{
+	color: #d96459;
+}
+
+.bars .down-bar{
+	height: 60px;
+	line-height: 60px;
+
+	border: 1px solid rgba(225, 225, 225, 0.3);
+	border-width: 1px 0 1px 0;
+}
+
+.bars .down-bar .nav{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.bars .down-bar .nav .nav-item:hover > a,.bars .down-bar .nav .nav-item.active > a{
+	color: #d96459;
+}
+
+.nav-item{
+	position: relative;
+}
+
+.nav-item > ul{
+	width: 200px;
+	list-style: none;
+	background-color: #fff;
+
+	padding: 0;
+	margin: 0;
+
+	display: none;
+	
+	position: absolute;
+	top: 60px;
+}
+
+.nav-item:hover > ul{
+	display: block;
+}
+
+.nav-item > ul > li{
+	padding: 0 30px;
+	transition: all 0.3s ease;
+}
+
+.nav-item > ul > li > a{
+	color: #444;
+}
+
+.nav-item > ul > li:hover{
+	background-color: #d96459;
+}
+
+.nav-item > ul > li:hover > a{
+	color: #fff;
+}
+
+/* ----------------
+End Header Section
+------------------ */
+
+
+/* -----------------------
+Start Cover Photo Section
+------------------------- */
+
+.cover-photo{
+	width: 100%;
+	height: 100vh;
+	background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),url("./img/bg1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	animation: slider 15s infinite;
+}
+
+
+@keyframes slider{
+	30%{
+        background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),url("./img/bg1.jpg");
+    }
+    
+    60%{
+        background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),url("./img/bg2.jpg");
+    }
+
+    90%{
+        background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),url("./img/bg3.jpg");
+    }
+}
+
+.cover-photo > div{
+	width: 460px;
+	height: 200px;
+	color: #fff;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.cover-photo > div > h1{
+	font-size: 42px;
+	font-weight: 600;
+	color: #d96459;
+	text-transform: uppercase;
+}
+
+.cover-photo > div > p{
+	text-align: center;
+}
+
+/* -----------------------
+End Cover Photo Section
+-------------------------- */
+
+
+/* --------------------
+Start About Us Section
+---------------------- */
+
+.about-us-container{
+	width: 100%;
+	height: 90vh;
+	overflow: hidden;
+}
+
+.about-us-container .row > div{
+	height: 100%;
+
+	padding: 40px 40px;
+}
+
+.about-us-container .row .text-container{
+	opacity: 0;
+}
+
+.about-us-container .row .text-container.myani{
+	animation: viewportani 2s 1 ease;
+	animation-fill-mode: forwards;
+}
+
+.about-us-container .img-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.about-us-container h1{
+	color: #666;
+	font-size: 35px;
+	text-transform: uppercase;
+
+	padding: auto 0;
+
+	position: relative;
+}
+
+.about-us-container h1::before{
+	content: "";
+
+	width: 50px;
+	height: 1px;
+	background-color: #777;
+
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+}
+
+.about-us-container p:nth-of-type(1){
+	color: #999;
+	font-style: italic;
+}
+
+.about-us-container p:nth-of-type(2){
+	color: #444;
+	font-size: 15px;
+	letter-spacing: 0.3px;
+	word-spacing: 0.3px;
+}
+
+.about-us-container .btn{
+	background-color: #d96459;
+	color: #fff;
+	display: inline-block;
+}
+
+.about-us-container img{
+	width: 100%;
+}
+
+/* -------------------
+End About Us Section
+---------------------- */
+
+
+/* ----------------------------
+Start Most Popular Book Section
+------------------------------- */
+
+.most-popular{
+	width: 100%;
+	min-height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+/* --------------------------
+End Most Popular Book Section
+----------------------------- */
+
+
+/* ----------------------------------
+Start Recently Released Book Section
+------------------------------------ */
+
+.recently-release{
+	width: 100%;
+	min-height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 70px;
+}
+
+.recently-release .btn{
+	background-color: #d96459;
+	color: #fff;
+	font-size: 17px;
+	margin: 20px 0;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ----------------------------------
+End Recently Released Book Section
+------------------------------------- */
+
+
+/* ---------------------------
+Start Book List Intro Section
+----------------------------- */
+
+.book-list{
+	width: 100%;
+	min-height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 70px;
+}
+
+.book-list .btn{
+	background-color: #d96459;
+	color: #fff;
+	font-size: 17px;
+	margin: 20px 0;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------------------------
+Start Book List Intro Section
+------------------------------*/
+
+
+/* --------------------------
+Start Category Intro Section
+----------------------------*/
+
+.category-intro{
+	width: 100%;
+	min-height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	margin-top: 70px;
+}
+
+.category{
+	min-height: 300px;
+	color: #fff;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	transition: all 0.2s ease;
+}
+
+.category:nth-of-type(1){
+	background-color: #3DB2FF;
+}
+
+.category:nth-of-type(2){
+	background-color: #FFB344;
+}
+
+.category:nth-of-type(3){
+	background-color: #E05D5D;
+}
+
+.category:nth-of-type(4){
+	background-color: #6ECB63;
+}
+
+.category:nth-of-type(5){
+	background-color: #FF67E7;
+}
+
+.category:nth-of-type(6){
+	background-color: #FFB085;
+}
+
+.category > div{
+	width: 4rem;
+	height: 4rem;
+	overflow: hidden;
+}
+
+.category > div > div{
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: all 0.3s ease;
+}
+
+.category > div .fas{
+	font-size: 3rem;
+	color: #fff;
+}
+
+.category:nth-of-type(1) > div > div:nth-of-type(2) .fas{
+	color: #3DB2FF;
+}
+
+.category:nth-of-type(2) > div > div:nth-of-type(2) .fas{
+	color: #FFB344;
+}
+
+.category:nth-of-type(3) > div > div:nth-of-type(2) .fas{
+	color: #E05D5D;
+}
+
+.category:nth-of-type(4) > div > div:nth-of-type(2) .fas{
+	color: #6ECB63;
+}
+
+.category:nth-of-type(5) > div > div:nth-of-type(2) .fas{
+	color: #FF67E7;
+}
+
+.category:nth-of-type(6) > div > div:nth-of-type(2) .fas{
+	color: #FFB085;
+}
+
+.category p{
+	text-align: center;
+	letter-spacing: 0.4px;
+	font-size: 15px;
+}
+
+.category p:nth-of-type(2){
+	font-size: 16px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.category p a{
+	text-decoration: none;
+	color: inherit;
+}
+
+.category:hover{
+	background-color: #f4f4f4;
+	color: #333;
+}
+
+.category:hover > div > div{
+	transform: translateY(-100%);
+}
+
+.category:nth-of-type(1):hover p:nth-of-type(2){
+	color: #3DB2FF;
+}
+
+.category:nth-of-type(2):hover p:nth-of-type(2){
+	color: #FFB344;
+}
+
+.category:nth-of-type(3):hover p:nth-of-type(2){
+	color: #E05D5D;
+}
+
+.category:nth-of-type(4):hover p:nth-of-type(2){
+	color: #6ECB63;
+}
+
+.category:nth-of-type(5):hover p:nth-of-type(2){
+	color: #FF67E7;
+}
+
+.category:nth-of-type(6):hover p:nth-of-type(2){
+	color: #FFB085;
+}
+
+.category:hover p:nth-of-type(2):hover{
+	color: #333;
+}
+
+#category .btn{
+	background-color: #d96459;
+	color: #fff;
+	font-size: 17px;
+	margin: 20px 0;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/* -------------------------
+End Category Intro Section
+--------------------------- */
+
+
+/* -------------------------------
+Start General Book Shelves Section
+--------------------------------- */
+
+.head{
+	text-align: center;
+}
+
+.head h1{
+	font-size: 35px;
+	color: #666;
+	text-transform: uppercase;
+
+	position: relative;
+}
+
+.head h1::before{
+	content: "";
+
+	width: 80px;
+	height: 1px;
+	background-color: #666;
+
+	position: absolute;
+	bottom: -5px;
+	left: 50%;
+
+	transform: translateX(-50%);
+}
+
+.head p{
+	font-style: italic;
+	color: #999;
+}
+
+.shelves{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.shelves .shelf{
+	width: 500px;
+	height: 250px;
+	display: flex;
+	margin: 40px 20px;
+
+	position: relative;
+}
+
+.shelves .shelf::before{
+	content: "";
+
+	width: calc(100% + 10px);
+	height: 15px;
+	background-color: #E4E4E4;
+
+	box-shadow: 0 15px 10px rgba(0, 0, 0, 0.4);
+
+	position: absolute;
+	bottom: -15px;
+	left: -5px;
+
+	z-index: 1;
+
+	box-sizing: border-box;
+}
+
+.shelves .shelf::after{
+	content: "";
+
+	width: calc(100% + 10px);
+	height: 60px;
+	background-color: #EFEFEF;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+
+	position: absolute;
+	bottom: 0;
+	left: -5px;
+
+	transform: perspective(100px) rotateX(30deg);
+	transform-origin: bottom;
+
+	box-sizing: border-box;
+
+}
+
+.shelf a{
+	position: relative;
+}
+
+.shelf a::before{
+	content: "";
+
+	width: calc(100% - 50px);
+	height: 30px;
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 100%;
+
+	filter: blur(10px);
+
+	position: absolute;
+	bottom: 12px;
+	left: 25px;
+	overflow: hidden;
+
+	z-index: 1;
+}
+
+.shelves .shelf img{
+	height: 100%;
+	cursor: pointer;
+
+	position: relative;
+	z-index: 2;
+}
+
+/* -------------------------------
+End General Book Shelves Section
+--------------------------------- */
+
+
+/* -------------------
+Start Footer Section
+--------------------- */
+
+.footer{
+	min-height: 50vh;
+	background-color: #333333;
+}
+
+.f-content{
+	padding: 50px;
+	color: #f4f4f4;
+}
+
+.f-content h1{
+	text-transform: uppercase;
+	font-size: 24px;
+	letter-spacing: 1px;
+
+	margin: 20px 0;
+
+	position: relative;
+}
+
+.f-content h1::before{
+	content: "";
+
+	width: 70px;
+	height: 2px;
+	background-color: #d96459;
+
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+}
+
+.f-content p{
+	font-size: 15px;
+	letter-spacing: 1px;
+	line-height: 24px;
+	color: #999;
+}
+
+.f-content .sub{
+	width: 240px;
+	height: 30px;
+
+	border-bottom: 1px solid #d96459;
+	padding: 15px 5px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#sub-email{
+	width: 200px;
+	background-color: #3333;
+	font-size: 15px;
+	color: #fff;
+	border: none;
+}
+
+#sub-email:focus{
+	outline: none;
+}
+
+.sub button{
+	background-color: transparent;
+	border: none;
+	color: #d96459;
+}
+
+.sub button:focus{
+	outline: none;
+}
+
+.f-content ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.f-content a{
+	color: #999;
+	text-decoration: none;
+
+	transition: all 0.2s ease;
+}
+
+.f-content a:hover{
+	color: #fff;
+}
+
+.f-content ul li{
+	margin: 10px 0;
+}
+
+.f-content ul li .fas{
+	color: #d96459;
+	margin-right: 5px;
+}
+
+/* -----------------
+End Footer Section
+--------------------*/
+
+
+@keyframes viewportani{
+	0%{
+		transform: translateY(50px);
+		opacity: 0;
+	}
+	100%{
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
